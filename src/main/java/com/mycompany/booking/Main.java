@@ -25,8 +25,15 @@ public class Main {
     public static void main(String[] args) {
         MainMenu menu = new MainMenu();
         UserInputs inputs = menu.getInputs();
-        searchBooking(inputs.destination, inputs.checkIn, inputs.checkOut);
-        searchTravelocity(inputs.destination, inputs.checkIn, inputs.checkOut);
+        SearchEngineFactory searchEngineFactory = new SearchEngineFactory();
+        ISearchEngine seBooking = searchEngineFactory.getSearchEngine("BOOKING");
+        ISearchEngine seTraveloCity = searchEngineFactory.getSearchEngine("TRAVELOCITYCOM");
+
+        seBooking.executeSearch(inputs.destination, inputs.checkIn, inputs.checkOut);
+        seTraveloCity.executeSearch(inputs.destination, inputs.checkIn, inputs.checkOut);
+
+//        searchBooking(inputs.destination, inputs.checkIn, inputs.checkOut);
+//        searchTravelocity(inputs.destination, inputs.checkIn, inputs.checkOut);
 //        searchBooking("Nafplio", "2021/01/01", "2021/01/02");
 //        searchTravelocity("Nafplio", "2021/01/01", "2021/01/02");
     }
@@ -107,7 +114,7 @@ public class Main {
 
     }
 
-    private static void writeUsingFileWriter(String data, String fileName) {
+    public static void writeUsingFileWriter(String data, String fileName) {
         File file = new File(fileName);
         FileWriter fr = null;
         try {
