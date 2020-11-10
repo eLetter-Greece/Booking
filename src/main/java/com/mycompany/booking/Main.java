@@ -40,16 +40,17 @@ public class Main {
 
     public static void searchBooking(String searchString, String checkInDate, String checkOutDate) {
         String checkInYear = checkInDate.substring(0, 4);
-        String checkInMonth = checkInDate.substring(5, 6);
-        String checkInDay = checkInDate.substring(8, 9);
+        String checkInMonth = checkInDate.substring(5, 7);
+        String checkInDay = checkInDate.substring(8, 10);
 
         String checkOutYear = checkOutDate.substring(0, 4);
-        String checkOutMonth = checkOutDate.substring(5, 6);
-        String checkOutDay = checkOutDate.substring(8, 9);
+        String checkOutMonth = checkOutDate.substring(5, 7);
+        String checkOutDay = checkOutDate.substring(8, 10);
 
         String s = "https://www.booking.com/searchresults.html?ss=" + searchString + "&no_rooms=1&group_adults=1&checkin_year="
                 + checkInYear + "&checkin_month=" + checkInMonth + "&checkin_monthday=" + checkInDay + "&checkout_year="
                 + checkOutYear + "&checkout_month=" + checkOutMonth + "&checkout_monthday=" + checkOutDay;
+        System.out.println(s);
         Document doc = null;
         String data = "";
         try {
@@ -57,6 +58,7 @@ public class Main {
             data = doc.title() + "\n";
             System.out.println(doc.title());
             Elements hotels = doc.select("#hotellist_inner > div");
+//            System.out.println(hotels);
             System.out.println("Hotel Count: " + hotels.size());
             List<Integer> falseHotels = new ArrayList<>();
             for (int i = 0; i < hotels.size(); i++) {

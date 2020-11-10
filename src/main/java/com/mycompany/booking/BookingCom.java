@@ -23,12 +23,12 @@ public class BookingCom implements ISearchEngine {
     @Override
     public void executeSearch(String searchString, String checkInDate, String checkOutDate) {
         String checkInYear = checkInDate.substring(0, 4);
-        String checkInMonth = checkInDate.substring(5, 6);
-        String checkInDay = checkInDate.substring(8, 9);
+        String checkInMonth = checkInDate.substring(5, 7);
+        String checkInDay = checkInDate.substring(8, 10);
 
         String checkOutYear = checkOutDate.substring(0, 4);
-        String checkOutMonth = checkOutDate.substring(5, 6);
-        String checkOutDay = checkOutDate.substring(8, 9);
+        String checkOutMonth = checkOutDate.substring(5, 7);
+        String checkOutDay = checkOutDate.substring(8, 10);
 
         String s = "https://www.booking.com/searchresults.html?ss=" + searchString + "&no_rooms=1&group_adults=1&checkin_year="
                 + checkInYear + "&checkin_month=" + checkInMonth + "&checkin_monthday=" + checkInDay + "&checkout_year="
