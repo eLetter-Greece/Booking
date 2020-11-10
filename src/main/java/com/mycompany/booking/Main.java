@@ -28,9 +28,11 @@ public class Main {
         SearchEngineFactory searchEngineFactory = new SearchEngineFactory();
         ISearchEngine seBooking = searchEngineFactory.getSearchEngine("BOOKING");
         ISearchEngine seTraveloCity = searchEngineFactory.getSearchEngine("TRAVELOCITYCOM");
+        ISearchEngine seGetaRoom = searchEngineFactory.getSearchEngine("GETAROOM");
 
         seBooking.executeSearch(inputs.destination, inputs.checkIn, inputs.checkOut);
         seTraveloCity.executeSearch(inputs.destination, inputs.checkIn, inputs.checkOut);
+        seGetaRoom.executeSearch(inputs.destination, inputs.checkIn, inputs.checkOut);
 
 //        searchBooking(inputs.destination, inputs.checkIn, inputs.checkOut);
 //        searchTravelocity(inputs.destination, inputs.checkIn, inputs.checkOut);

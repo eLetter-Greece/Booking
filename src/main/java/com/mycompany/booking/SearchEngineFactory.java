@@ -23,6 +23,11 @@ public class SearchEngineFactory {
             case "TRAVELOCITYCOM":
                 return new TraveloCityCom();
             // no need for break;
+            case "getaroom":
+            case "GetARoom":
+            case "GETAROOM":
+                return new GetaRoom();
+            // no need for break;
         }
         return null;
     }
